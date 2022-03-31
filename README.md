@@ -1,4 +1,7 @@
 # VBA-Challenge-Carly-Wieland
+
+Final project is in the Release section, with the tag finalproject.
+
 Repo Includes: A screen shot for each year of your results on the Multi Year Stock Data &amp; VBA Scripts as separate files.
 
 VBA Homework - The VBA of Wall Street
