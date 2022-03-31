@@ -1,4 +1,3 @@
-Attribute VB_Name = "Module1"
 Sub VBA_Homework_Stock_Data():
 
 ' Hey, Hello, Hi There - Welcome to my VBA homework :)
@@ -8,7 +7,7 @@ Sub VBA_Homework_Stock_Data():
 ' (including the new table and challenge table)
 
     Dim ws As Worksheet
-    Dim totalvolume As Long
+    Dim totalvolume As Double
     Dim x As Long
     Dim change As Long
     Dim y As Long
@@ -16,13 +15,10 @@ Sub VBA_Homework_Stock_Data():
     Dim rowCount As Long
     Dim percentChange As Double
     Dim days As Long
-  
-
 
 ' Step 2: Create the loop to go through all of the worksheets
     
     For Each ws In Worksheets
-
 
 ' Step 3: the Layout & Formatting - all cosmetic stuff.
 
@@ -32,10 +28,8 @@ Sub VBA_Homework_Stock_Data():
 
     ws.Range("A1:G1").Borders(xlEdgeBottom).LineStyle = XlLineStyle.xlContinuous
     ws.Range("A1:G1").Interior.ColorIndex = 15
-    
     ws.Range("I1:L1").Borders(xlEdgeBottom).LineStyle = XlLineStyle.xlContinuous
     ws.Range("I1:L1").Interior.ColorIndex = 15
-    
     ws.Range("N1:P1").Borders(xlEdgeBottom).LineStyle = XlLineStyle.xlContinuous
     ws.Range("N1:P1").Interior.ColorIndex = 15
     ws.Range("N1:N4").Interior.ColorIndex = 15
@@ -59,7 +53,6 @@ Sub VBA_Homework_Stock_Data():
     ws.Columns("I:L").AutoFit
     ws.Columns("N:P").AutoFit
 
-
 ' Step 4: Set ALL starting values, for counting and quick mafths
 
     y = 0
@@ -67,13 +60,11 @@ Sub VBA_Homework_Stock_Data():
     change = 0
     start = 2
 
-
 ' Step 5: Control,Shift,Down to create the loop to the last row with data
 
     rowCount = ws.Cells(Rows.Count, "A").End(xlUp).Row
 
     For x = 2 To rowCount
-
 
 ' Step 6: Collecting, storing & counting the data associated with the tickers
         
@@ -117,11 +108,9 @@ Sub VBA_Homework_Stock_Data():
     change = (ws.Cells(x, 6) - ws.Cells(start, 3))
     percentChange = change / ws.Cells(start, 3)
 
-
 ' Mumma Mia, Here I go again - let's start the next ticker
     
     start = x + 1
-
 
 '  Add results to the first table and put the numbers in the correct format
 
@@ -131,7 +120,6 @@ Sub VBA_Homework_Stock_Data():
     ws.Range("K" & 2 + y).Value = percentChange
     ws.Range("K" & 2 + y).NumberFormat = "0.00%"
     ws.Range("L" & 2 + y).Value = totalvolume
-
 
 ' Condition formatting colours into the yearly change column
 ' Referenced https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/select-case-statement
@@ -179,7 +167,6 @@ Sub VBA_Homework_Stock_Data():
     ws.Range("P3") = "%" & WorksheetFunction.Min(ws.Range("K2:K" & rowCount)) * 100
     ws.Range("P4") = WorksheetFunction.Max(ws.Range("L2:L" & rowCount))
 
-
 ' returns one less because header row not a factor
 ' Reference class activity Credit Cards
 
@@ -193,21 +180,12 @@ Sub VBA_Homework_Stock_Data():
     ws.Range("O3") = ws.Cells(decrease_number + 1, 9)
     ws.Range("O4") = ws.Cells(volume_number + 1, 9)
 
-
-
 ' Step 7: Yeehaw cowboy, let's run this loop on the next worksheet
 
     Next ws
-        
 
-
-
-' I did come across a few errors so I'm going to put the script in rice for a little while.
+' I did come across a few errors so I put the script in rice for a little while.
 
 ' Honestly though, I am very sorry it's late and I absolutely won't make a habit of this.
 
-
-
 End Sub
-
-
